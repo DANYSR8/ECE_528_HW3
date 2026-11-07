@@ -51,7 +51,7 @@ $PreScalar(N) = \frac{ClockFrequency}{BaudRate} \rightarrow \frac{12MHz}{115200}
 
 
 
-
+---
 **4. (a) (15 pts) Write a function named UART2_Init that configures the eUSCI_A2 module for the following settings:**
 - **Data Length: 8 bits**
     -  Clear Bit 12 in UCAxCTLW0 
@@ -113,7 +113,7 @@ Used DRAWIO for generating image:
 ![UART_2Byte_MSG](./Images/Q4_PartB-HW3%20UART%20Submisison_Transparent.png)
 
 
-
+---
 **5. (5 pts) What is the function of the eUSCI_B module? How does SPI communication differ from UART communication in terms of:**
 
 The eUSCI_B module functions as an additional serial communication module, but this one only offers $I^2C$ or SPI and does not support UART.
@@ -134,7 +134,7 @@ The eUSCI_B module functions as an additional serial communication module, but t
 
     - SPI doesn't use any framing like UART, since it has the "CS" line marking when the transmission starts and ends. So SPI is just raw data, while UART has the addition of start/stop bits and an optional parity bit.
 
-
+---
 **6. (a) (5 pts) Explain the role of the following SPI signals:**
 - **SCLK**
 
@@ -156,7 +156,7 @@ The eUSCI_B module functions as an additional serial communication module, but t
 
 If multiple peripherals have their CS line asserted, the communication among the devices fails, since all are trying to drive the shared MISO line back to the one master at the same time. This leads to corrupted data and unknown/undesirable states, and the selected slaves may also act on commands meant for another device.
 
-
+---
 **7. (a) (5 pts) Briefly describe the function of the UCBxCTLW0 (Control Word 0) register from the eUSCI_B module.**
 
 The UCBxCTLW0 register controls what clock is to be used, its phase and polarity, what synchronization mode, the direction of the data (MSB or LSB first), its length, whether the peripheral is in master or slave mode, and overall enabling of the peripheral (software reset).
@@ -196,7 +196,7 @@ The UCSSELx field, which is bits 7 and 6. Below are the clock sources to be sele
 10b = SMCLK
 11b = SMCLK
 ```
-
+---
 **8. (a) (15 pts) Write a function named EUSCI_B0_SPI_Init that configures the eUSCI_B0 module for SPI communication with the following settings:**
 
 - **SPI Mode: 0**
